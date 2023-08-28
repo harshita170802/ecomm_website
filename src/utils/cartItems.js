@@ -19,7 +19,16 @@ const addToCart=(product,quantity)=>{
   }
   setCartItems(cartItems);
 }
-
+const addToBuyCart=(product,quantity)=>{
+  const cartItems=getCartItems();
+  const existingItem=cartItems.find((item)=>item.id===product.id);
+  if(existingItem){
+    existingItem.qty += quantity;
+  }else{
+    cartItems.push({id:product?.id, title:product?.title, price:product?.price, image:product?.thumbnail, qty:quantity})
+  }
+  setCartItems(cartItems);
+}
 const removeFromCart=(productId)=>{
     const cartItems=getCartItems().filter((item)=>item.id !== productId)
      setCartItems(cartItems);    
@@ -36,4 +45,4 @@ const updateCartItems=(productId,quantity)=>{
     setCartItems(cartItems);
 }
 
-export {getCartItems,addToCart,removeFromCart,updateCartItems}
+export {getCartItems,addToCart,removeFromCart,updateCartItems,addToBuyCart}
