@@ -26,34 +26,19 @@ const BuyProduct = ({ products }) => {
 
     setLoading(true);
 
-    // Fetch the price from the API
-    const priceResponse = await fetch('https://dummyjson.com/products');
-    const priceData = await priceResponse.json();
-    const price = priceData.price;
+    // Extract price from the query parameter
+    const queryPrice = parseInt(router.query.price);
 
-    // Create a payment intent on your backend using the fetched price
+    // Create a payment intent on your backend using the extracted price
     const paymentIntentResponse = await fetch('/create-payment-intent', {
       method: 'POST',
-      body: JSON.stringify({ price }),
+      body: JSON.stringify({ price: queryPrice }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    const paymentIntentData = await paymentIntentResponse.json();
 
-    const result = await stripe.confirmCardPayment(paymentIntentData.clientSecret, {
-      payment_method: {
-        card: elements.getElement(CardElement), // Use the CardElement component
-      },
-    });
-
-    if (result.error) {
-      setError(result.error.message);
-    } else {
-      // Payment successful, handle accordingly
-    }
-
-    setLoading(false);
+    // Rest of your code...
   };
 
   return (
@@ -69,5 +54,7 @@ const BuyProduct = ({ products }) => {
 };
 
 export default BuyProduct;
+
+
 
 
