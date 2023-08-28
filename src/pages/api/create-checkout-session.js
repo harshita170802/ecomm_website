@@ -72,7 +72,7 @@ export default async (req, res) => {
         mode: 'payment',
 
         success_url: `${process.env.HOST}/thankyou`,
-        cancel_url: `${process.env.HOST}/checkout`,
+        cancel_url: `${process.env.HOST}/buyproduct`,
         metadata: {
             email,
         }
