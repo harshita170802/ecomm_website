@@ -15,7 +15,6 @@ function Buyproduct() {
     // ... do something with the `price`
   }, []);
 
-<<<<<<< HEAD
   const { getTotalItems, getTotalPrice, cart } = useCart();
   const items = cart.map((item) => ({
     name: item.title,
@@ -39,7 +38,7 @@ function Buyproduct() {
     if (result.error) {
       alert(result.error.message);
     }
-=======
+
   const handleBuyClick = async () => {
     if (!stripe) {
       return;
@@ -60,7 +59,7 @@ function Buyproduct() {
     });
 
     // Rest of your code...
->>>>>>> 62e76ebfdd53caff6b791096759efdfc337685ad
+
   };
 
   return (
@@ -79,10 +78,6 @@ function Buyproduct() {
     </>
   );
 }
+}
 
-<<<<<<< HEAD
 export default Buyproduct;
-=======
-
-
->>>>>>> 62e76ebfdd53caff6b791096759efdfc337685ad
