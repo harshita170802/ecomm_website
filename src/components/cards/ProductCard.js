@@ -2,24 +2,24 @@ import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
 import { BiCartAdd, BiRupee } from 'react-icons/bi'
-import { addToCart, getCartItems } from '@/utils/cartItems'
+import { addToCart, getCartItems,addToBuyCart } from '@/utils/cartItems'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/router'
-import { useCart } from '../../store/CartContext'
+
 function ProductCard({product}) {
   console.log(getCartItems());
+
   const router = useRouter(); // Initialize router
-  const {
-    addToCart,
-  } = useCart();
+
 
   const handleBuyClick = () => {
-    addToCart(product, 1);
+    console.log('Buy button clicked');
+    addToBuyCart(product, 1);
     toast.success('Added in Cart!');
     // Navigate to the BuyProductFile route with the product price as a query parameter
     router.push({
       pathname: '/buyproduct',
-      query: { price: product.price },
+
     });
   };
   
@@ -52,3 +52,4 @@ function ProductCard({product}) {
 }
 
 export default ProductCard
+
