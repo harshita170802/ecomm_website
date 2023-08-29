@@ -2,24 +2,36 @@ import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
 import { useCart } from '../store/CartContext';
+<<<<<<< HEAD
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Head from 'next/head'
 import Image from 'next/image';
 import { BiRupee } from 'react-icons/bi'
+=======
+
+>>>>>>> e18e4f7b47feb6afb12491802fb2f29cdee99fe0
 const stripePromise = loadStripe(
   'pk_test_51Nhl13SFL8XbMgVaZuFHfPQwTC0AfE9XRViBvETns4NKHTEmHL0jr9Zg1xCmMNskzC5htzULUfrebHEt3pEyW7Nm00q9SvKUXL'
 );
 
 function Buyproduct() {
   const { cart } = useCart();
+<<<<<<< HEAD
   const items = cart?.map((item) => ({
+=======
+  const items = cart.map((item) => ({
+>>>>>>> e18e4f7b47feb6afb12491802fb2f29cdee99fe0
     name: item.title,
     price: item.price,
     id: item.id,
     category: item.category,
     image: item.thumbnail,
   }));
+<<<<<<< HEAD
  console.log(items)
+=======
+
+>>>>>>> e18e4f7b47feb6afb12491802fb2f29cdee99fe0
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;
     
@@ -32,8 +44,11 @@ function Buyproduct() {
     const result = await stripe.redirectToCheckout({
       sessionId: checkoutSession.data.id,
 
+<<<<<<< HEAD
     });
     console.log(sessionId)
+=======
+>>>>>>> e18e4f7b47feb6afb12491802fb2f29cdee99fe0
     if (result.error) {
       alert(result.error.message);
     }
@@ -84,3 +99,7 @@ function Buyproduct() {
 }
 
 export default Buyproduct;
+<<<<<<< HEAD
+=======
+
+>>>>>>> e18e4f7b47feb6afb12491802fb2f29cdee99fe0
