@@ -5,10 +5,31 @@ import Image from 'next/image';
 import React, { useState } from 'react'
 import { BiRupee } from 'react-icons/bi';
 import { toast } from 'react-hot-toast';
-
+import { useCart } from '@/store/CartContext'
+import { useRouter } from 'next/router';
+import {AiFillStar} from 'react-icons/ai'
 
 function SingleProduct ({product}) {
   const [quantity, setQuantity]= useState(1);
+  const router = useRouter(); 
+  const { addToBuyCart, isInCart, itemQuantity } = useCart();
+
+  const handleBuyClick = () => {
+ 
+        if (!isInCart(product.id)) {
+          addToBuyCart(product, 1); 
+        } else {
+          const quantityInCart = itemQuantity(product.id);
+          addToBuyCart(product, setQuantity);
+        }
+    router.push({
+      pathname: '/buyproduct',
+      query: { price: product.price
+       },
+
+    });
+  };
+
   return (
     <>
      <Head>
@@ -23,9 +44,16 @@ function SingleProduct ({product}) {
           </div>   
         </div>
 
-        <div className='col-lg-6'>
+        <div className='col-lg-5'>
           <h2>{product?.title}</h2>
-          <h4 className='card-title d-flex align-items-center'><BiRupee size={21}/>{product?.price}</h4>
+          <div className='d-flex justify-content-between align-items-center'>
+        <h4 className='card-title d-flex align-items-center'>
+        <BiRupee size={25}/>{product?.price}
+        </h4>
+        <h4 className='card-title d-flex  p-2 mb-1 bg-light text-dark align-items-center border border-light rounded-pill'>
+        <AiFillStar size={25} color={'yellow'}/> {product?.rating}       
+        </h4>
+         </div>
           <h5 className='mt-2'>Description</h5>
           <p>{product?.description}</p>
 
@@ -40,7 +68,7 @@ function SingleProduct ({product}) {
 
           <div className='d-flex gap-3 mt-4'>
             <button type='button' className='btn btn-sm btn-warning' onClick={(e)=>{addToCart(product,quantity),toast.success('Added to Cart!')}}>Add to Cart</button>
-            <button type='button' className='btn btn-sm btn-success'>Buy Now</button>
+            <button type='button' className='btn btn-sm btn-success' onClick={handleBuyClick}>Buy Now</button>
           </div>
 
         </div>

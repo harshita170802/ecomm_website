@@ -5,7 +5,6 @@ import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
 import store,{useStore} from '../store/store';
 import { DataProvider } from "../context/authContext";
-import { SnackbarProvider } from "notistack";
 import CartContext from '@/store/CartContext';
 
 export default function App({ Component, pageProps }) {
@@ -14,14 +13,14 @@ export default function App({ Component, pageProps }) {
   return(
     <>
     <DataProvider>
+    <CartContext>
     <Provider store={store}>
-     <CartContext>
     <Layout>  
       <Component {...pageProps} />
       <Toaster position='top-center' />
     </Layout>
-    </CartContext>
     </Provider>
+    </CartContext>
     </DataProvider>
     
     </>

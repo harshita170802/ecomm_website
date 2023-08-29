@@ -38,45 +38,32 @@ export default function Header() {
     <nav className="navbar navbar-top-bg text-white d-none d-md-block">
     <div className="container-md">
     <i className='nav-item navbar-nav'>Get Up to 70% Discount Everyday</i>
-    <div className='dropdown p-0'>
-      <span className='dropdown-toggle' type='button' data-bs-toggle="dropdown" aria-expanded='false'>My Account</span>
+    <div className='d-flex p-0'>
+  {user !== null ? (
+    <>
+      <Link href="/profile" legacyBehavior>
+        <a className="btn btn-light me-2">Profile</a>
+      </Link>
+      <a
+        href="#"
+        className="btn btn-light"
+        onClick={logoutHandler}
+      >
+        Logout
+      </a>
+    </>
+  ) : (
+    <>
+      <Link href="/login" legacyBehavior>
+        <a className="btn btn-light me-2">Login</a>
+      </Link>
+      <Link href="/register" legacyBehavior>
+        <a className="btn btn-light">Register</a>
+      </Link>
+    </>
+  )}
+</div>
 
-<ul className='dropdown-menu'>
-          {user !== null ? (
-            <>
-              <li className="nav-item">
-                <Link href="/profile" legacyBehavior>
-                  <a className=" dropdown-item">
-                    Profile
-                  </a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a
-                  href="#"
-                  className=" dropdown-item \"
-                  onClick={logoutHandler}
-                >
-                  Logout
-                </a>
-              </li>
-            </>
-          ) : (
-            <>
-              <li className="nav-item">
-                <Link href="/login" legacyBehavior>
-                  <a className=" dropdown-item ">Login</a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/register" legacyBehavior>
-                  <a className="dropdown-item ">Register</a>
-                </Link>
-              </li>
-            </>
-          )}
-        </ul>
-    </div>   
     </div>
     </nav>
 
@@ -102,9 +89,9 @@ export default function Header() {
   </button>
   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div className="navbar-nav">
-      <Link className="nav-item nav-link active" href="#">Store</Link>
-      <Link className="nav-item nav-link" href="#">About Us</Link>
-      <Link className="nav-item nav-link" href="#">Support</Link>
+      <Link className="nav-item nav-link active" href="/">Home</Link>
+      <Link className="nav-item nav-link" href="/aboutus">About Us</Link>
+      <Link className="nav-item nav-link" href="/contactus">Contact Us</Link>
 
     </div>
   </div>

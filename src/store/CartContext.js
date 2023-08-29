@@ -6,7 +6,7 @@ const CartContext = ({ children }) => {
 
     const [cart, setCart] = useState([]);
 
-    const addToCart = (product) => {
+    const addToBuyCart = (product) => {
         const newCart = [...cart, product];
         setCart(newCart);
         localStorage.setItem('cart', JSON.stringify(newCart));
@@ -71,7 +71,7 @@ const CartContext = ({ children }) => {
     }, []);
 
     return (
-        <Context.Provider value={{ cart, addToCart, reduceFromCart, removeFromCart, clearCart, isInCart, itemQuantity, getTotalItems, getTotalPrice }}>
+        <Context.Provider value={{ cart, addToBuyCart, reduceFromCart, removeFromCart, clearCart, isInCart, itemQuantity, getTotalItems, getTotalPrice }}>
             {children}
         </Context.Provider>
     );

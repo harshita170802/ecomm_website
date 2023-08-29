@@ -1,22 +1,26 @@
 import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
+import {AiFillStar} from 'react-icons/ai'
 import { BiCartAdd, BiRupee } from 'react-icons/bi'
-import { addToCart, getCartItems } from '@/utils/cartItems'
+import { addToCart, getCartItems,addToBuyCart } from '@/utils/cartItems'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/router'
-import { useCart } from '../../store/CartContext'
+import { useCart } from '@/store/CartContext'
+
 function ProductCard({product}) {
   console.log(getCartItems());
-  const router = useRouter(); // Initialize router
-  const {
-    addToCart,
-  } = useCart();
+  const router = useRouter(); 
+  const { addToBuyCart, isInCart, itemQuantity } = useCart();
 
   const handleBuyClick = () => {
-    addToCart(product, 1);
-    toast.success('Added in Cart!');
-    // Navigate to the BuyProductFile route with the product price as a query parameter
+ 
+        if (!isInCart(product.id)) {
+          addToBuyCart(product, 1); 
+        } else {
+          const quantityInCart = itemQuantity(product.id);
+          addToBuyCart(product, quantityInCart + 1); 
+        }
     router.push({
       pathname: '/buyproduct',
       query: { price: product.price },
@@ -24,6 +28,7 @@ function ProductCard({product}) {
   };
   
   return (
+   
     <div className = 'card' >
         <Link href={`/product/${product?.id}`}>
         <div className='object-fit-cover'>
@@ -40,12 +45,12 @@ function ProductCard({product}) {
             <BiRupee size={21}/>
             {product?.price}
         </h6>
-        <div className='d-flex'>
-            <button className='btn btn-warning btn-sm mx-2' onClick={(e)=>{addToCart(product,1),toast.success('Added in Cart!')}}><BiCartAdd size={22}/></button>
-            <button className='btn btn-success btn-sm 'onClick={handleBuyClick} >BUY</button>
-        </div>
+        <h6 className='card-title d-flex p-2 mb-1 bg-light text-dark align-items-center border border-light rounded-pill'>
+        <AiFillStar size={21} color={'yellow'}/> {product?.rating}       
+        </h6>
     </div>
-    
+    <button className='btn btn-warning btn-sm mx-2' onClick={(e)=>{addToCart(product,1),toast.success('Added in Cart!')}}><BiCartAdd size={22}/></button>
+    <button className='btn btn-success btn-sm 'onClick={handleBuyClick} >BUY</button>
   </div>
 </div>
   )

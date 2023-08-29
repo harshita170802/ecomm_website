@@ -1,14 +1,13 @@
 import { createContext, useReducer, useEffect } from "react";
 
-//initial state
+
 const initialState = {
   user: null,
 };
 
-//creating context
+
 const Context = createContext();
 
-//reducer
 const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
@@ -26,7 +25,6 @@ const authReducer = (state, action) => {
   }
 };
 
-//Provider
 const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 

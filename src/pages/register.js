@@ -45,7 +45,9 @@ const Register = () => {
 
   return (
     <div>
-      
+      <Head>
+        <title>Register</title>
+      </Head>
       <div className="container mt-5">
         <div className="d-flex flex-column align-items-center">
           <div className="bg-orange-500 rounded-circle p-3">

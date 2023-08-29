@@ -11,24 +11,24 @@ function Banner() {
   </div>
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <Image src="/images/slider3.jpg" className="d-block w-100" width={600} height={410}  alt="slide_img_1"/>
+      <Image src="/images/slider3.jpg" className="d-block w-100" width={500} height={410}  alt="slide_img_1"/>
       <div className="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+        <h5>Welcome to Our Ecommerce Store</h5>
+        <p>Explore our wide range of cutting-edge electronics, from smartphones and laptops to smart home devices and accessories. Elevate your tech game with top-notch gadgets and stay connected with the latest innovations.</p>
       </div>
     </div>
     <div className="carousel-item">
-      <Image src="/images/slider2.jpg" className="d-block w-100" width={600} height={410} alt="slide_img_2"/>
+      <Image src="/images/slider2.jpg" className="d-block w-100" width={500} height={410} alt="slide_img_2"/>
       <div className="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+        <h5>Elevate Your Tech Style with Accessories</h5>
+        <p>Complete your tech ensemble with our stylish and functional accessories. From sleek phone cases to ergonomic laptop stands, our collection is designed to complement your devices and enhance your overall tech lifestyle.</p>
       </div>
     </div>
     <div className="carousel-item">
-      <Image src="/images/slider1.jpg" className="d-block w-100" width={600} height={410}  alt="slide_img_3"/>
+      <Image src="/images/slider1.jpg" className="d-block w-100" width={500} height={410}  alt="slide_img_3"/>
       <div className="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+      <h5>Stay Ahead with the Latest Gadgets</h5>
+      <p>Explore our collection of cutting-edge technology gadgets that will redefine your digital experience. From smart wearables to immersive gaming gear, we have the tools to keep you connected, entertained, and empowered.</p>
       </div>
     </div>
   </div>

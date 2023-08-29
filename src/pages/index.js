@@ -1,10 +1,8 @@
-import Banner from '@/components/Banner'
 import ProductCard from '@/components/cards/ProductCard'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Head from 'next/head'
 
-//
-export default function Home({products  }) {
+export default function Home({products}) {
   return (
     <>
       <Head>
@@ -14,7 +12,6 @@ export default function Home({products  }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-      <Banner/>
        <div className='my-2 bg-light'>
         <h4 className='text-center p-2 text-uppercase'>Products</h4>
        </div>

@@ -48,8 +48,9 @@ const Login = () => {
     <>
       <div>
         <Head>
-          <title>Login | AUTHY</title>
+          <title>Login</title>
         </Head>
+        
         <div className="container mt-5">
           <div className="d-flex flex-column align-items-center">
             <div className="bg-orange-500 rounded-circle p-3">
@@ -78,7 +79,7 @@ const Login = () => {
               />
               <button
                 type="submit"
-                className="btn btn-primary bg-orange-500 mt-2"
+                className="btn btn-primary justify-content-center "
                 disabled={!email || !password}
               >
                 Login
