@@ -19,10 +19,6 @@ const addToCart=(product,quantity)=>{
   }
   setCartItems(cartItems);
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> e18e4f7b47feb6afb12491802fb2f29cdee99fe0
 const addToBuyCart=(product,quantity)=>{
   const cartItems=getCartItems();
   const existingItem=cartItems.find((item)=>item.id===product.id);
@@ -33,10 +29,7 @@ const addToBuyCart=(product,quantity)=>{
   }
   setCartItems(cartItems);
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> e18e4f7b47feb6afb12491802fb2f29cdee99fe0
 const removeFromCart=(productId)=>{
     const cartItems=getCartItems().filter((item)=>item.id !== productId)
      setCartItems(cartItems);    
@@ -53,8 +46,5 @@ const updateCartItems=(productId,quantity)=>{
     setCartItems(cartItems);
 }
 
-<<<<<<< HEAD
 export {getCartItems,addToCart,removeFromCart,updateCartItems,addToBuyCart}
-=======
-export {getCartItems,addToCart,removeFromCart,updateCartItems,addToBuyCart}
->>>>>>> e18e4f7b47feb6afb12491802fb2f29cdee99fe0
+

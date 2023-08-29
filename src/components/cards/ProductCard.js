@@ -6,7 +6,6 @@ import { BiCartAdd, BiRupee } from 'react-icons/bi'
 import { addToCart, getCartItems,addToBuyCart } from '@/utils/cartItems'
 import { toast } from 'react-hot-toast'
 import { useRouter } from 'next/router'
-<<<<<<< HEAD
 import { useCart } from '@/store/CartContext'
 
 function ProductCard({product}) {
@@ -22,20 +21,6 @@ function ProductCard({product}) {
           const quantityInCart = itemQuantity(product.id);
           addToBuyCart(product, quantityInCart + 1); 
         }
-=======
-
-function ProductCard({product}) {
-  console.log(getCartItems());
-
-  const router = useRouter(); // Initialize router
-
-
-  const handleBuyClick = () => {
-    console.log('Buy button clicked');
-    addToBuyCart(product, 1);
-    toast.success('Added in Cart!');
-    // Navigate to the BuyProductFile route with the product price as a query parameter
->>>>>>> e18e4f7b47feb6afb12491802fb2f29cdee99fe0
     router.push({
       pathname: '/buyproduct',
 
