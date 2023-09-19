@@ -68,7 +68,6 @@ function SingleProduct ({product}) {
 
           <div className='d-flex gap-3 mt-4'>
             <button type='button' className='btn btn-sm btn-warning' onClick={(e)=>{addToCart(product,quantity),toast.success('Added to Cart!')}}>Add to Cart</button>
-
           </div>
 
         </div>
