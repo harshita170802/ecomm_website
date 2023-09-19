@@ -19,6 +19,7 @@ const addToCart=(product,quantity)=>{
   }
   setCartItems(cartItems);
 }
+
 const addToBuyCart=(product,quantity)=>{
   const cartItems=getCartItems();
   const existingItem=cartItems.find((item)=>item.id===product.id);
